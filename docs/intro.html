@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Statistics 101</title>
+  <meta name="description" content="Textbook for Statistics 101 course run by Data Science team at Mailchimp" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Statistics 101" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Textbook for Statistics 101 course run by Data Science team at Mailchimp" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Statistics 101" />
+  
+  <meta name="twitter:description" content="Textbook for Statistics 101 course run by Data Science team at Mailchimp" />
+  
+
+<meta name="author" content="Matt Mastin and Jim Crozier" />
+
+
+<meta name="date" content="2020-02-28" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="summarystats.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="summarystats.html"><a href="summarystats.html"><i class="fa fa-check"></i><b>2</b> Summary Statistics</a><ul>
+<li class="chapter" data-level="2.1" data-path="summarystats.html"><a href="summarystats.html#frequency-histograms"><i class="fa fa-check"></i><b>2.1</b> Frequency Histograms</a></li>
+<li class="chapter" data-level="2.2" data-path="summarystats.html"><a href="summarystats.html#how-large-are-the-numbers-on-the-list"><i class="fa fa-check"></i><b>2.2</b> How Large Are the Numbers on the List?</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="summarystats.html"><a href="summarystats.html#the-median"><i class="fa fa-check"></i><b>2.2.1</b> The Median</a></li>
+<li class="chapter" data-level="2.2.2" data-path="summarystats.html"><a href="summarystats.html#the-average"><i class="fa fa-check"></i><b>2.2.2</b> The Average</a></li>
+<li class="chapter" data-level="2.2.3" data-path="summarystats.html"><a href="summarystats.html#root-mean-square"><i class="fa fa-check"></i><b>2.2.3</b> Root Mean Square</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="summarystats.html"><a href="summarystats.html#how-spread-out-are-the-numbers"><i class="fa fa-check"></i><b>2.3</b> How Spread Out Are the Numbers?</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="summarystats.html"><a href="summarystats.html#standard-deviation"><i class="fa fa-check"></i><b>2.3.1</b> Standard Deviation</a></li>
+<li class="chapter" data-level="2.3.2" data-path="summarystats.html"><a href="summarystats.html#variance"><i class="fa fa-check"></i><b>2.3.2</b> Variance</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="summarystats.html"><a href="summarystats.html#density-histograms"><i class="fa fa-check"></i><b>2.4</b> Density Histograms</a></li>
+<li class="chapter" data-level="2.5" data-path="summarystats.html"><a href="summarystats.html#standardization"><i class="fa fa-check"></i><b>2.5</b> Standardization</a></li>
+<li class="chapter" data-level="2.6" data-path="summarystats.html"><a href="summarystats.html#example"><i class="fa fa-check"></i><b>2.6</b> Example</a></li>
+<li class="chapter" data-level="2.7" data-path="summarystats.html"><a href="summarystats.html#lab-questions"><i class="fa fa-check"></i><b>2.7</b> Lab Questions</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="summarystats.html"><a href="summarystats.html#introduction-to-r"><i class="fa fa-check"></i><b>2.7.1</b> Introduction to R</a></li>
+<li class="chapter" data-level="2.7.2" data-path="summarystats.html"><a href="summarystats.html#getting-help"><i class="fa fa-check"></i><b>2.7.2</b> Getting help</a></li>
+<li class="chapter" data-level="2.7.3" data-path="summarystats.html"><a href="summarystats.html#running-code"><i class="fa fa-check"></i><b>2.7.3</b> Running code</a></li>
+<li class="chapter" data-level="2.7.4" data-path="summarystats.html"><a href="summarystats.html#functions"><i class="fa fa-check"></i><b>2.7.4</b> Functions</a></li>
+<li class="chapter" data-level="2.7.5" data-path="summarystats.html"><a href="summarystats.html#variable-assignment-and-types"><i class="fa fa-check"></i><b>2.7.5</b> Variable assignment and types</a></li>
+<li class="chapter" data-level="2.7.6" data-path="summarystats.html"><a href="summarystats.html#packages"><i class="fa fa-check"></i><b>2.7.6</b> Packages</a></li>
+<li class="chapter" data-level="2.7.7" data-path="summarystats.html"><a href="summarystats.html#loading-data"><i class="fa fa-check"></i><b>2.7.7</b> Loading data</a></li>
+<li class="chapter" data-level="2.7.8" data-path="summarystats.html"><a href="summarystats.html#dplyr-verbs"><i class="fa fa-check"></i><b>2.7.8</b> dplyr Verbs</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="corr.html"><a href="corr.html"><i class="fa fa-check"></i><b>3</b> Correlation and Regression</a><ul>
+<li class="chapter" data-level="3.1" data-path="corr.html"><a href="corr.html#scatter-plots"><i class="fa fa-check"></i><b>3.1</b> Scatter Plots</a></li>
+<li class="chapter" data-level="3.2" data-path="corr.html"><a href="corr.html#section"><i class="fa fa-check"></i><b>3.2</b> </a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>4</b> Probability</a><ul>
+<li class="chapter" data-level="4.1" data-path="probability.html"><a href="probability.html#example-one"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
+<li class="chapter" data-level="4.2" data-path="probability.html"><a href="probability.html#example-two"><i class="fa fa-check"></i><b>4.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="hypothesis.html"><a href="hypothesis.html"><i class="fa fa-check"></i><b>5</b> Hypothesis Tests</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistics 101</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Statistics 101</h1>
+<p class="author"><em>Matt Mastin and Jim Crozier</em></p>
+<p class="date"><em>2020-02-28</em></p>
+</div>
+<div id="intro" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
+<p>This textbok accompanies an introductory statistical analysis course run by the Data Science team. It will take place over the 5 Tuesdays in March 2020 (though March 24th will be a review / catch-up day… go vote!). The purpose of this course is to help develop a solid foundation of basic statistical intuition. We aren’t going to dive too deeply into the math, but we aren’t going to shy away understanding the formulas. You will get the most out of the lectures if you are comfortable with basic algebra. The course is open to anyone with manager approval. For this first iteration we will limit enrollment to 15 and the course will be remote friendly. The course is two hours per week, and the format will be a one hour lecture followed by a one hour interactive computer lab.</p>
+<p>The confluence page for the course is located at <a href="go.rsglab.com/stats101">go.rsglab.com/stats101</a>.</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="summarystats.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

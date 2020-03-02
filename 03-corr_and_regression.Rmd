@@ -1,0 +1,5 @@
+# Correlation and Regression {#corr}
+
+## Scatter Plots
+
+## 

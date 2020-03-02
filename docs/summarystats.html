@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Summary Statistics | Statistics 101</title>
+  <meta name="description" content="Textbook for Statistics 101 course run by Data Science team at Mailchimp" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Summary Statistics | Statistics 101" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Textbook for Statistics 101 course run by Data Science team at Mailchimp" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Summary Statistics | Statistics 101" />
+  
+  <meta name="twitter:description" content="Textbook for Statistics 101 course run by Data Science team at Mailchimp" />
+  
+
+<meta name="author" content="Matt Mastin and Jim Crozier" />
+
+
+<meta name="date" content="2020-03-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="corr.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="summarystats.html"><a href="summarystats.html"><i class="fa fa-check"></i><b>2</b> Summary Statistics</a><ul>
+<li class="chapter" data-level="2.1" data-path="summarystats.html"><a href="summarystats.html#frequency-histograms"><i class="fa fa-check"></i><b>2.1</b> Frequency Histograms</a></li>
+<li class="chapter" data-level="2.2" data-path="summarystats.html"><a href="summarystats.html#how-large-are-the-numbers-on-the-list"><i class="fa fa-check"></i><b>2.2</b> How Large Are the Numbers on the List?</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="summarystats.html"><a href="summarystats.html#the-median"><i class="fa fa-check"></i><b>2.2.1</b> The Median</a></li>
+<li class="chapter" data-level="2.2.2" data-path="summarystats.html"><a href="summarystats.html#the-average"><i class="fa fa-check"></i><b>2.2.2</b> The Average</a></li>
+<li class="chapter" data-level="2.2.3" data-path="summarystats.html"><a href="summarystats.html#root-mean-square"><i class="fa fa-check"></i><b>2.2.3</b> Root Mean Square</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="summarystats.html"><a href="summarystats.html#how-spread-out-are-the-numbers"><i class="fa fa-check"></i><b>2.3</b> How Spread Out Are the Numbers?</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="summarystats.html"><a href="summarystats.html#standard-deviation"><i class="fa fa-check"></i><b>2.3.1</b> Standard Deviation</a></li>
+<li class="chapter" data-level="2.3.2" data-path="summarystats.html"><a href="summarystats.html#variance"><i class="fa fa-check"></i><b>2.3.2</b> Variance</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="summarystats.html"><a href="summarystats.html#density-histograms"><i class="fa fa-check"></i><b>2.4</b> Density Histograms</a></li>
+<li class="chapter" data-level="2.5" data-path="summarystats.html"><a href="summarystats.html#standardization"><i class="fa fa-check"></i><b>2.5</b> Standardization</a></li>
+<li class="chapter" data-level="2.6" data-path="summarystats.html"><a href="summarystats.html#example"><i class="fa fa-check"></i><b>2.6</b> Example</a></li>
+<li class="chapter" data-level="2.7" data-path="summarystats.html"><a href="summarystats.html#lab-questions"><i class="fa fa-check"></i><b>2.7</b> Lab Questions</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="summarystats.html"><a href="summarystats.html#introduction-to-r"><i class="fa fa-check"></i><b>2.7.1</b> Introduction to R</a></li>
+<li class="chapter" data-level="2.7.2" data-path="summarystats.html"><a href="summarystats.html#getting-help"><i class="fa fa-check"></i><b>2.7.2</b> Getting help</a></li>
+<li class="chapter" data-level="2.7.3" data-path="summarystats.html"><a href="summarystats.html#running-code"><i class="fa fa-check"></i><b>2.7.3</b> Running code</a></li>
+<li class="chapter" data-level="2.7.4" data-path="summarystats.html"><a href="summarystats.html#tutorial-quick-overview"><i class="fa fa-check"></i><b>2.7.4</b> Tutorial : Quick overview</a></li>
+<li class="chapter" data-level="2.7.5" data-path="summarystats.html"><a href="summarystats.html#functions"><i class="fa fa-check"></i><b>2.7.5</b> Functions</a></li>
+<li class="chapter" data-level="2.7.6" data-path="summarystats.html"><a href="summarystats.html#variable-assignment-and-types"><i class="fa fa-check"></i><b>2.7.6</b> Variable assignment and types</a></li>
+<li class="chapter" data-level="2.7.7" data-path="summarystats.html"><a href="summarystats.html#packages"><i class="fa fa-check"></i><b>2.7.7</b> Packages</a></li>
+<li class="chapter" data-level="2.7.8" data-path="summarystats.html"><a href="summarystats.html#loading-data"><i class="fa fa-check"></i><b>2.7.8</b> Loading data</a></li>
+<li class="chapter" data-level="2.7.9" data-path="summarystats.html"><a href="summarystats.html#tutorial-1-data-basics"><i class="fa fa-check"></i><b>2.7.9</b> Tutorial 1: Data Basics</a></li>
+<li class="chapter" data-level="2.7.10" data-path="summarystats.html"><a href="summarystats.html#dplyr-verbs"><i class="fa fa-check"></i><b>2.7.10</b> dplyr Verbs</a></li>
+<li class="chapter" data-level="2.7.11" data-path="summarystats.html"><a href="summarystats.html#tutorial-2-filter"><i class="fa fa-check"></i><b>2.7.11</b> Tutorial 2: filter</a></li>
+<li class="chapter" data-level="2.7.12" data-path="summarystats.html"><a href="summarystats.html#tutorial-3-mutate"><i class="fa fa-check"></i><b>2.7.12</b> Tutorial 3: mutate</a></li>
+<li class="chapter" data-level="2.7.13" data-path="summarystats.html"><a href="summarystats.html#tutorial-4-summarize"><i class="fa fa-check"></i><b>2.7.13</b> Tutorial 4: summarize</a></li>
+<li class="chapter" data-level="2.7.14" data-path="summarystats.html"><a href="summarystats.html#lecture-questions"><i class="fa fa-check"></i><b>2.7.14</b> Lecture questions:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="corr.html"><a href="corr.html"><i class="fa fa-check"></i><b>3</b> Correlation and Regression</a><ul>
+<li class="chapter" data-level="3.1" data-path="corr.html"><a href="corr.html#scatter-plots"><i class="fa fa-check"></i><b>3.1</b> Scatter Plots</a></li>
+<li class="chapter" data-level="3.2" data-path="corr.html"><a href="corr.html#section"><i class="fa fa-check"></i><b>3.2</b> </a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>4</b> Probability</a><ul>
+<li class="chapter" data-level="4.1" data-path="probability.html"><a href="probability.html#example-one"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
+<li class="chapter" data-level="4.2" data-path="probability.html"><a href="probability.html#example-two"><i class="fa fa-check"></i><b>4.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="hypothesis.html"><a href="hypothesis.html"><i class="fa fa-check"></i><b>5</b> Hypothesis Tests</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistics 101</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="summarystats" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Summary Statistics</h1>
+<p>Our first topic will be summary statistics and the basic question we want to ask is: given a list of numbers how can we describe its basic shape?</p>
+<p>We will typically denote our list of numbers <span class="math inline">\(x\)</span> and refer to it as a <strong>sample</strong> or <strong>dataset</strong>. We can generate a particular example in R by doing the following.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="summarystats.html#cb1-1"></a>x &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">50</span>, <span class="dv">10</span>, <span class="dt">replace=</span><span class="ot">TRUE</span>)</span>
+<span id="cb1-2"><a href="summarystats.html#cb1-2"></a><span class="kw">print</span>(x)</span></code></pre></div>
+<pre><code>##  [1]  2 42 49 13  5 46 49  4  3 42</code></pre>
+<p>This will sample <span class="math inline">\(10\)</span> numbers “randomly” from the the integers between <span class="math inline">\(0\)</span> and <span class="math inline">\(50\)</span>. Random can be a loaded term and we will talk more about what it can mean later, but here it means that each number is equally likely to be selected at each draw. The <code>replace=TRUE</code> bit means that we “put” a number back into the pot after we draw it so that we have the possibility of drawing it again. We will talk more about the various ways samples can be taken later on in the course.</p>
+<div id="frequency-histograms" class="section level2">
+<h2><span class="header-section-number">2.1</span> Frequency Histograms</h2>
+<p>We can visualize the list of numbers using a <strong>histogram</strong> as shown here.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="summarystats.html#cb3-1"></a><span class="kw">hist</span>(x, <span class="dt">col=</span><span class="st">&quot;grey&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>This is essentially a bar graph where the x-axis shows ranges and the y-axis gives the count of numbers in each range that appear in the sample. Or, said another way, the <em>height</em> of each bar is equal to the count of numbers in each range. This is called a <strong>frequency histogram</strong> because it displays the <em>number</em> of times each number appears on the list.</p>
+</div>
+<div id="how-large-are-the-numbers-on-the-list" class="section level2">
+<h2><span class="header-section-number">2.2</span> How Large Are the Numbers on the List?</h2>
+<p>So, what do we really mean by the size of the numbers on the list? The right definition can often depend on what you are interested in. Maybe you only need to know the range of the numbers.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="summarystats.html#cb4-1"></a><span class="kw">max</span>(x)</span></code></pre></div>
+<pre><code>## [1] 49</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="summarystats.html#cb6-1"></a><span class="kw">min</span>(x)</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>These measure the extremes of the dataset, but how are the numbers distributed between them? Are they piled up on one side of the other? Do they mostly fall in the middle or are they evenly spread out? We can see the distrubution on a histogram, but how do we <em>quantify</em> these properties? We will do this with two numbers. One will measure where the “center” of the sample falls and the other measures how spread out the sample is. These are sometimes called <em>measures of central tendency</em>. Let’s first discuss how we can describe the center of the dataset.</p>
+<div id="the-median" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> The Median</h3>
+<p>The <strong>median</strong> of a list of numbers is the value at the midpoint if we were to arrange the numbers in order. This can also be thought of as a value separating the higher half from the lower half.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="summarystats.html#cb8-1"></a><span class="kw">sort</span>(x)</span></code></pre></div>
+<pre><code>##  [1]  2  3  4  5 13 42 42 46 49 49</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="summarystats.html#cb10-1"></a><span class="kw">median</span>(x)</span></code></pre></div>
+<pre><code>## [1] 27.5</code></pre>
+<p>We can visualize the median on a frequency histogram.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="summarystats.html#cb12-1"></a>mx &lt;-<span class="st"> </span><span class="kw">median</span>(x)</span>
+<span id="cb12-2"><a href="summarystats.html#cb12-2"></a><span class="kw">hist</span>(x, <span class="dt">col=</span><span class="st">&#39;grey&#39;</span>)</span>
+<span id="cb12-3"><a href="summarystats.html#cb12-3"></a><span class="kw">abline</span>(<span class="dt">v =</span> mx, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">lwd =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>A nice property of the median is that it is not very sensitive to outliers, that is, numbers that are far from the center of the dataset.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="summarystats.html#cb13-1"></a><span class="kw">median</span>(x)</span></code></pre></div>
+<pre><code>## [1] 27.5</code></pre>
+<p>Now watch what happens we add some very large numbers to the list.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="summarystats.html#cb15-1"></a><span class="kw">median</span>(<span class="kw">append</span>(x, <span class="dv">939239</span>))</span></code></pre></div>
+<pre><code>## [1] 42</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="summarystats.html#cb17-1"></a><span class="kw">median</span>(<span class="kw">append</span>(x, <span class="dv">345254</span>))</span></code></pre></div>
+<pre><code>## [1] 42</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="summarystats.html#cb19-1"></a><span class="kw">median</span>(<span class="kw">append</span>(x, <span class="dv">76547567</span>))</span></code></pre></div>
+<pre><code>## [1] 42</code></pre>
+<p>Notice that the median isn’t very sensitive to the value of an added outlier. So, when data is known to have some kind of skew it is common to use medians to describe the center. A typical example of this is income due to its concentration in the hands of relatively few.</p>
+<p>The median also has the property that if we were to randomly select a number from our list it would be just as likely be greater than the median as less. There is an interesting relationship between statistics and probability that we will discuss more in chapter <a href="probability.html#probability">4</a>.</p>
+</div>
+<div id="the-average" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> The Average</h3>
+<p>Another way to define the center of a dataset is the average and in order to define it we will introduce a bit more notation. Recall that we are calling our list of numbers <span class="math inline">\(x\)</span>. We could reference the individual numbers in the list by <span class="math inline">\(x_i\)</span> where <span class="math inline">\(i\)</span> can range between <span class="math inline">\(1\)</span> and <span class="math inline">\(n\)</span> where <span class="math inline">\(n\)</span> is the size of the list. The <strong>average</strong> or <strong>mean</strong> of the list <span class="math inline">\(x\)</span> can then be defined by the following expression. Note that we are following a fairly standard convention of denoting the average by the Greek letter “mu”. Sometimes the mean is also denoted <span class="math inline">\(\bar{x}\)</span>.</p>
+<p><span class="math display">\[\mu(x) = \bar{x} = \frac{1}{n} \sum_{i=1}^n x_i\]</span>
+Here we are using <a href="https://en.wikipedia.org/wiki/Summation">summation notation</a> which is convenient way of writing down a sum of an arbitrary number of terms. Let’s look at an example to make sure we see how this notation works.</p>
+<p><em><strong>Example</strong></em>: Let <span class="math inline">\(x = \{1, 6, 4, 7, 8\}\)</span>, then the average of <span class="math inline">\(x\)</span> is given by</p>
+<p><span class="math display">\[\mu(x) = \frac{1}{5} \sum_{i=1}^5 x_i = \frac{1}{5} (1 + 6 + 4 + 7 + 8) = \frac{1}{5} (26) = 5.2\]</span></p>
+<p>Of course, we could also let R do this for us.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="summarystats.html#cb21-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">8</span>)</span>
+<span id="cb21-2"><a href="summarystats.html#cb21-2"></a><span class="kw">mean</span>(x)</span></code></pre></div>
+<pre><code>## [1] 5.2</code></pre>
+<p>Now let’s talk about some interpretations of the average. One is that it is the number that “balances” the histogram in the sense depicted in this image.</p>
+<div class="figure">
+<img src="average_balance.png" alt="" />
+<p class="caption">Averages balance histograms</p>
+</div>
+<p>As we slide the rightmost part of the histogram out the average must move with it in order to prevent the histogram from tipping. Maybe this is why the average is sometimes called the <strong>first moment</strong> (see the definition of a <a href="https://simple.wikipedia.org/wiki/Moment_(physics)">moment</a> from physics).</p>
+<p>We can perform a similar experiment as we did with medians to look at how outliers affect the mean.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="summarystats.html#cb23-1"></a><span class="kw">mean</span>(x)</span></code></pre></div>
+<pre><code>## [1] 5.2</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="summarystats.html#cb25-1"></a><span class="kw">mean</span>(<span class="kw">append</span>(x, <span class="dv">939239</span>))</span></code></pre></div>
+<pre><code>## [1] 156544.2</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="summarystats.html#cb27-1"></a><span class="kw">mean</span>(<span class="kw">append</span>(x, <span class="dv">345254</span>))</span></code></pre></div>
+<pre><code>## [1] 57546.67</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="summarystats.html#cb29-1"></a><span class="kw">mean</span>(<span class="kw">append</span>(x, <span class="dv">76547567</span>))</span></code></pre></div>
+<pre><code>## [1] 12757932</code></pre>
+<p>Unlike the median, the mean is very sensitive to outliers, but this isn’t always a bad thing as we will see in a moment.</p>
+<p>Another interpretation of the mean is that is the value for a “typical” number of the list. Or, more precisely, if we randomly select a number from the list the mean would be the best guess for what the value would be in the sense that it would, in the long run, be closer to the actually selected numbers than any other guess. We will talk more about this as well in chapter <a href="probability.html#probability">4</a>. Notice that here we care about the outlier because we would, even if it was only occassionally, draw it from the list if we were to take enough draws.</p>
+<p>To finish off this section we note that the relationship between the mean and median can give information about the shape of the histogram. Here is a nice graphic from the <a href="https://en.wikipedia.org/wiki/Skewness">wikipedia page</a> on <strong>skewness</strong>.
+The third measure shown here is the <strong>mode</strong>. This is the value that occurs most often in the list, so it corresponds to the maximum value of the histogram.</p>
+<div class="figure">
+<img src="hist_skew.png" alt="" />
+<p class="caption">Skewed histograms</p>
+</div>
+</div>
+<div id="root-mean-square" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> Root Mean Square</h3>
+<p>There is another measure of size that is important, but sometimes not given the attention it deserves. The expression below defines the <strong>root mean square</strong> of a list.</p>
+<p><span class="math display">\[RMS(x) = \sqrt{\frac{1}{n}\sum_{i=1}^n x_i^2}\]</span></p>
+<p>Why do we need another way of measure the size of the list? Consider the following example.</p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>Notice that this histogram is fairly symmetric about <span class="math inline">\(0\)</span>. This means that we should expect the mean to be close to <span class="math inline">\(0\)</span> (for example, by thinking about the balancing analogy above).</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="summarystats.html#cb31-1"></a><span class="kw">mean</span>(x)</span></code></pre></div>
+<pre><code>## [1] -0.05408121</code></pre>
+<p>Notice what happens when we add balanced outliers.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="summarystats.html#cb33-1"></a><span class="kw">hist</span>(<span class="kw">append</span>(x, <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">-10</span>)), <span class="dt">col=</span><span class="st">&#39;grey&#39;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="summarystats.html#cb34-1"></a><span class="kw">mean</span>(x)</span></code></pre></div>
+<pre><code>## [1] -0.05408121</code></pre>
+<p>The mean is unchanged! This isn’t good if we are interested in measuring the size of the <em>magnitude</em> of the numbers. This is where the root mean square comes in. It is sensitive to adding balanced outliers.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="summarystats.html#cb36-1"></a><span class="kw">sqrt</span>(<span class="kw">mean</span>(x<span class="op">^</span><span class="dv">2</span>))</span></code></pre></div>
+<pre><code>## [1] 0.9764938</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="summarystats.html#cb38-1"></a><span class="kw">sqrt</span>(<span class="kw">mean</span>(<span class="kw">append</span>(x, <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">-10</span>))<span class="op">^</span><span class="dv">2</span>))</span></code></pre></div>
+<pre><code>## [1] 1.072957</code></pre>
+<p>It is reasonable to ask why we use this measure instead of something “simpler” like, for instance, taking the average of absolute values. In truth, that would also be a reasonable way to measure the size of the magnitudes of the numbers (average absolute deviation is a fairly common way to measure error). However, the root mean square is related to the notion of the norm of a vector in the <strong>Euclidean space</strong> <span class="math inline">\(\mathbb{R}^n\)</span> which, as we will see in chapter <a href="corr.html#corr">3</a>, can be exploited. If this is unfamiliar, then the takeaway is that this formula fits into a larger framework and this is convenient.</p>
+</div>
+</div>
+<div id="how-spread-out-are-the-numbers" class="section level2">
+<h2><span class="header-section-number">2.3</span> How Spread Out Are the Numbers?</h2>
+<p>Now that we know a few ways to describe the center of a list of numbers we can talk about measuring how the numbers are arranged around the center. Generally speaking we will use the mean as our definition of center.</p>
+<div id="standard-deviation" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Standard Deviation</h3>
+<p>The <strong>deviation</strong> of a number on our list is defined as the difference between the number and the mean of the sample. The <strong>standard deviation</strong> is defined to be the root mean square of the deviations.</p>
+<p>We can write the standard deviation formally as the following expression.</p>
+<p><span class="math display">\[\sigma(x) = \sqrt{\frac{1}{n}\sum_{i-1}^n (x_i - \bar{x})^2}\]</span>
+Let’s revisit the list we used in the mean example above, but this time compute the standard deviation. Recall that our list is <span class="math inline">\(x = \{1, 6, 4, 7, 8\}\)</span> and the average of the list was <span class="math inline">\(5.2\)</span>.</p>
+<p><span class="math display">\[\sigma(x) = \sqrt{\frac{1}{5} \sum_{i=1}^5 (x_i - 5.2)^2} = \]</span>
+<span class="math display">\[ = \sqrt{ \frac{1}{5} ((1 - 5.2)^2 + (6 - 5.2)^2 + (4 - 5.2)^2 + (7 - 5.2)^2 + (8 - 5.2)^2)} \approx 2.48 \]</span></p>
+<p>We can also do this using R.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="summarystats.html#cb40-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">8</span>)</span>
+<span id="cb40-2"><a href="summarystats.html#cb40-2"></a>deviations &lt;-<span class="st"> </span>x <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(x)</span>
+<span id="cb40-3"><a href="summarystats.html#cb40-3"></a><span class="kw">print</span>(deviations)</span></code></pre></div>
+<pre><code>## [1] -4.2  0.8 -1.2  1.8  2.8</code></pre>
+<p>Now that we have the deviations we can take the root mean square to obtain the standard deviation.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="summarystats.html#cb42-1"></a><span class="kw">sqrt</span>(<span class="kw">mean</span>(deviations<span class="op">^</span><span class="dv">2</span>))</span></code></pre></div>
+<pre><code>## [1] 2.481935</code></pre>
+<p>R does have a built in <code>sd</code> function. Let’s give that a shot.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="summarystats.html#cb44-1"></a><span class="kw">sd</span>(x)</span></code></pre></div>
+<pre><code>## [1] 2.774887</code></pre>
+<p>This value is different because this function in R is actually what is typically called the <strong>sample standard deviation</strong>. What we defined above is technically called the <strong>population standard deviation</strong>. The sample standard deviation is given by the following.</p>
+<p><span class="math display">\[S(x) = \sqrt{\frac{1}{n-1}\sum_{i-1}^n (x_i - \bar{x})^2}\]</span></p>
+<p>The difference between the population and sample standard deviations is outside of our scope for now, but the fact that there are two notions of standard deviations is something to be aware of. We will go into more detail when we discuss probability in chapter <a href="probability.html#probability">4</a>.</p>
+</div>
+<div id="variance" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> Variance</h3>
+<p>The variance of a list of numbers is defined to be the square of the standard deviation and, as such, is typically denoted <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><span class="math display">\[\sigma^2(x) = \frac{1}{n}\sum_{i-1}^n (x_i - \bar{x})^2\]</span></p>
+<p>There are instances when working with a quantity that contains a square root is inconvenient and often using the variance can lead to simpler arithmetic, but it carries essentially the same information as the standard deviation.</p>
+</div>
+</div>
+<div id="density-histograms" class="section level2">
+<h2><span class="header-section-number">2.4</span> Density Histograms</h2>
+<p>As we previously mentioned, frequency histograms are essentialy just bar charts. This means that the scale of the y-axis depends on the numbers appear in our list. This can make it difficult to reason about the data or compare datasets to each other. For example, given the following histogram how could we quickly estimate the percentage of numbers that fall between <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span>?</p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>We would need to sum up the heights of each bar between <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span> and then divide by the size of the list. This isn’t particularly difficult, but we can make this more easily read off the histogram. A <strong>density histogram</strong> is one where the the <em>area</em> of each bar corresponds to the <em>percentage</em> of numbers that fall within each range. If we restrict ourselves to histograms with bins of all the same width, then we can obtain the density histogram by dividing the frequency of each number by the sample size.</p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>To estimate the percentage of the numbers that fall between <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span> we can estimate the total area of the bars between <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span>. Each bar has width <span class="math inline">\(0.5\)</span>, so the area of the bar between <span class="math inline">\(1\)</span> and <span class="math inline">\(1.5\)</span> is about <span class="math inline">\(0.5 * 0.2 = 0.1\)</span> and the bar between <span class="math inline">\(1.5\)</span> and <span class="math inline">\(2\)</span> is has area about <span class="math inline">\(0.5 * 0.1 = 0.05\)</span>. So, the percentage of the numbers that fall between <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span> is about <span class="math inline">\(15\%\)</span>.</p>
+<p>Density histograms will play an important role in chapter <a href="probability.html#probability">4</a> when we talk about the relationship between probability and statistics.</p>
+</div>
+<div id="standardization" class="section level2">
+<h2><span class="header-section-number">2.5</span> Standardization</h2>
+<p>We can think of converting from a frequency histogram to a density histogram as a way of “standardizing” the data. In other words, we rescale so that the y-axes of all of our histograms have the same scale. It is often also convenient to rescale the data itself. We will give an example of why we might want to do this shortly, but first we will describe a typical way in which this is done.</p>
+<p>Consider the following density histogram.</p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p>To standardize this histogram we will make two modifications. The first will be to compute the mean of the data and then subtract that from each number in the sample. Let’s do this using R and then look at the resulting histogram.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="summarystats.html#cb46-1"></a>x &lt;-<span class="st"> </span>x <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(x)</span>
+<span id="cb46-2"><a href="summarystats.html#cb46-2"></a><span class="kw">hist</span>(x, <span class="dt">col=</span><span class="st">&#39;grey&#39;</span>, <span class="dt">freq =</span> <span class="ot">FALSE</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p>Notice that the histogram is now centered at <span class="math inline">\(0\)</span> instead of whatever the mean of the original dataset was. It can be nice to center histograms at <span class="math inline">\(0\)</span> if we are comparing the shape of data across datasets that may have different means (we will look at an example of this in the next section). It is interesting to note that the mean of the dataset after subtracting the original mean is <span class="math inline">\(0\)</span>.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="summarystats.html#cb47-1"></a><span class="kw">mean</span>(x)</span></code></pre></div>
+<pre><code>## [1] 4.095339e-15</code></pre>
+<p>Note that this number is in <a href="https://en.wikipedia.org/wiki/Scientific_notation">scientific notation</a> and is very close to zero. It is not exactly zero due to rounding error in the numerical computation.</p>
+<p>The second modification we will make is to divide each number in the sample by the standard deviation of the sample. Let’s do this and then look at the effect on the histogram.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="summarystats.html#cb49-1"></a>x &lt;-<span class="st"> </span>x <span class="op">/</span><span class="st"> </span><span class="kw">sd</span>(x)</span>
+<span id="cb49-2"><a href="summarystats.html#cb49-2"></a><span class="kw">hist</span>(x, <span class="dt">col=</span><span class="st">&#39;grey&#39;</span>, <span class="dt">freq =</span> <span class="ot">FALSE</span>, <span class="dt">main=</span><span class="st">&quot;Standardized Histogram&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p>Notice that this standardized histogram has the same shape as the previous one, but it has been rescaled so that the majority of the values fall between <span class="math inline">\(-2\)</span> and <span class="math inline">\(2\)</span>.</p>
+<p>We can interpret the rescaled data to be telling us how many standard deviations from the mean each datapoint in the original dataset falls. Sometimes these are called <strong>standard units</strong> and this is also related to the <strong>z-statistic</strong> that is used in hypothesis tests. But, this is a topic for chapter <a href="hypothesis.html#hypothesis">5</a>.</p>
+<p>In the next section we will look at an example of how standardizing data can be a powerful tool for data analysis.</p>
+</div>
+<div id="example" class="section level2">
+<h2><span class="header-section-number">2.6</span> Example</h2>
+<p>Consider the following situation motivated by a real situation within Mailchimp data. We have many users and each of their email campaigns have an associated open rate. Below we see density histograms for three different users showing the distributions of their open rates across all campaigns they have sent.</p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p>We can see from these histograms that the mean open rates for these users are about <span class="math inline">\(20\)</span>, <span class="math inline">\(30\)</span>, and <span class="math inline">\(60\)</span> respectively. We can also see that the variances around the means are different for each user. This makes sense since each user’s audience will engage at different rates across campaigns.</p>
+<p>Now suppose we want to analyze the impact of some Mailchimp feature on open rate. We could split each histogram by whether or not the campaigns used the feature.</p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p>Now we have two histograms for each of these users. One showing open rate using the feature and the other showing open rate <em>not</em> using the feature. It appears that there is a difference between open rates, but the actual amount of change seems to vary between the users. So, how can we quantify how much the feature impacts open rate?</p>
+<p>An issue here is that it is difficult to separate the impact of the feature from the natural difference between audience engagement across these users. Let’s try standardizing the histograms and see what happens.</p>
+<p>We don’t want to standardize using <code>sd(x_1_a)</code> and <code>mean(x_1_a)</code> because we would</p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p>After standardizing we can see that the histograms corresponding to using the feature have collapsed to almost the same histogram and similarly for the histograms corresponding to not using the feature. The peaks of the histograms corresponding to using the feature are at about <span class="math inline">\(1\)</span> standard unit and the peaks of the histograms corresponding to not using the feature are at about <span class="math inline">\(-1\)</span> standard unit. We can interpret this as telling us that that if a user uses the feature they should expect for the campaign to perform at about <span class="math inline">\(1\)</span> standard deviation above their mean open rate. Similarly, if a user does not use the feature then they should expect the campaign to perform at about <span class="math inline">\(1\)</span> standard deviation below their mean open rate.</p>
+<p>Note that the data used in this example was fake and generated so that these standardized histograms lined up well and the separation between using and not using the feature was large. Real data is generally much noisier than this and the effect of feature usage is much harder to tease out.</p>
+<p>There is one more important thing to note about this example. In order to get an idea of the feature’s impact we need to standardize in a slightly different way than was described above. We have split each users data into two groups, but we will standardize each group with respect to the overall mean and standard deviation of the user’s campaign open rate data as show below. Note that <code>x_1_a</code> is the data from campaigns sent by this user that did not use the feature in question.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="summarystats.html#cb50-1"></a>standardized_data &lt;-<span class="st"> </span>(x_<span class="dv">1</span>_a <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(x_<span class="dv">1</span>)) <span class="op">/</span><span class="st"> </span><span class="kw">sd</span>(x_<span class="dv">1</span>)</span></code></pre></div>
+<p>If we had instead standardized using the mean and standard deviation of <code>x_1_a</code> then we would have ended up with data that was mean <span class="math inline">\(0\)</span> and variance <span class="math inline">\(1\)</span> as we noted previously. So, all of the histograms would have piled on top of each other and we would have hidden the actual impact of the feature from ourselves as shown below.</p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+</div>
+<div id="lab-questions" class="section level2">
+<h2><span class="header-section-number">2.7</span> Lab Questions</h2>
+<div id="introduction-to-r" class="section level3">
+<h3><span class="header-section-number">2.7.1</span> Introduction to R</h3>
+<p>R is a high level statistical computing language. We will be using RStudio as an development environment for this course. I am borrowing a lot from this great book on <a href="https://r4ds.had.co.nz/index.html">R for Data Science</a> , this <a href="https://github.com/CerebralMastication/r_for_the_student">overview</a>, as well as some stuff from this great <a href="https://bookdown.org/content/3686/the-r-programming-language.html">bayes analysis book</a>.</p>
+<p>Before we get started, let’s make some appearance changes that will make the screen shots easier to see.</p>
+<div class="figure">
+<img src="pics/lab1_ss1.png" alt="" />
+<p class="caption">Choose Tools</p>
+</div>
+<p><img src="pics/lab1_ss2.png" alt="Choose Global Options" />
+<img src="pics/lab1_ss3.png" alt="Set Color" /></p>
+<p>Whew, that’s better. Now, let’s get to know the development environment. First create a file, and then we step through the sections</p>
+<p><img src="pics/lab1_ss4.png" alt="Create file" />
+We will walk through these one by one in the lab</p>
+<div class="figure">
+<img src="pics/lab1_ss5.png" alt="" />
+<p class="caption">Create file</p>
+</div>
+</div>
+<div id="getting-help" class="section level3">
+<h3><span class="header-section-number">2.7.2</span> Getting help</h3>
+<pre><code>## starting httpd help server ... done</code></pre>
+<pre><code>## If the browser launched by &#39;/usr/bin/open&#39; is already running, it
+##     is *not* restarted, and you must switch to its window.
+## Otherwise, be patient ...</code></pre>
+<p>shows many of the help documentation that is available. You can also get help with most any function with by prepending <code>?</code> to the funcion call. For instance, to get help with the sample() function in base R,</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="summarystats.html#cb53-1"></a>?<span class="kw">sample</span>()</span></code></pre></div>
+<p>And the documentation will show in the Help tab.</p>
+</div>
+<div id="running-code" class="section level3">
+<h3><span class="header-section-number">2.7.3</span> Running code</h3>
+<p>You can run code three ways:</p>
+<ol style="list-style-type: decimal">
+<li>Type code directly into the RELP (Read–eval–print loop)</li>
+</ol>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="summarystats.html#cb54-1"></a><span class="kw">print</span>(<span class="st">&quot;hello world&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;hello world&quot;</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Type code into the text editor, and hit Run (top left) (you can also run your current line by hitting cmd + enter, see <a href="https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts">here</a> for more keyboard shortcuts).</p></li>
+<li><p>Saving your code and calling the saved code from the command line.</p></li>
+</ol>
+</div>
+<div id="tutorial-quick-overview" class="section level3">
+<h3><span class="header-section-number">2.7.4</span> Tutorial : Quick overview</h3>
+<p>On the command line run the following command:</p>
+<p><code>learnr::run_tutorial("R_Basics", "sur")</code></p>
+<p>and follow the prompts.</p>
+</div>
+<div id="functions" class="section level3">
+<h3><span class="header-section-number">2.7.5</span> Functions</h3>
+<p>Functions allow you make code repeatable and callable. We will be learning more about functions in later</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="summarystats.html#cb56-1"></a>print_str =<span class="st"> </span><span class="cf">function</span>(str){</span>
+<span id="cb56-2"><a href="summarystats.html#cb56-2"></a><span class="kw">print</span>(str)</span>
+<span id="cb56-3"><a href="summarystats.html#cb56-3"></a>}</span>
+<span id="cb56-4"><a href="summarystats.html#cb56-4"></a></span>
+<span id="cb56-5"><a href="summarystats.html#cb56-5"></a><span class="kw">print_str</span>(<span class="st">&quot;hello, world&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;hello, world&quot;</code></pre>
+<p>The inputs to the function can be given a default.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="summarystats.html#cb58-1"></a>print_str =<span class="st"> </span><span class="cf">function</span>(<span class="dt">str=</span><span class="st">&quot;intial string&quot;</span>){</span>
+<span id="cb58-2"><a href="summarystats.html#cb58-2"></a><span class="kw">print</span>(str)</span>
+<span id="cb58-3"><a href="summarystats.html#cb58-3"></a>}</span>
+<span id="cb58-4"><a href="summarystats.html#cb58-4"></a></span>
+<span id="cb58-5"><a href="summarystats.html#cb58-5"></a><span class="kw">print_str</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;intial string&quot;</code></pre>
+<p>if you pass an argument, it will override the default</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="summarystats.html#cb60-1"></a>print_str =<span class="st"> </span><span class="cf">function</span>(<span class="dt">str=</span><span class="st">&quot;intial string&quot;</span>){</span>
+<span id="cb60-2"><a href="summarystats.html#cb60-2"></a><span class="kw">print</span>(str)</span>
+<span id="cb60-3"><a href="summarystats.html#cb60-3"></a>}</span>
+<span id="cb60-4"><a href="summarystats.html#cb60-4"></a></span>
+<span id="cb60-5"><a href="summarystats.html#cb60-5"></a><span class="kw">print_str</span>(<span class="st">&quot;something clever&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;something clever&quot;</code></pre>
+<p>Typically functions are used to perform an actions, or series of actions.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="summarystats.html#cb62-1"></a>add_two_numbers =<span class="st"> </span><span class="cf">function</span>(x,y){</span>
+<span id="cb62-2"><a href="summarystats.html#cb62-2"></a>  <span class="kw">return</span>(x <span class="op">+</span><span class="st"> </span>y)</span>
+<span id="cb62-3"><a href="summarystats.html#cb62-3"></a>}</span>
+<span id="cb62-4"><a href="summarystats.html#cb62-4"></a></span>
+<span id="cb62-5"><a href="summarystats.html#cb62-5"></a><span class="kw">add_two_numbers</span>(<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+</div>
+<div id="variable-assignment-and-types" class="section level3">
+<h3><span class="header-section-number">2.7.6</span> Variable assignment and types</h3>
+<p>Variables can assigned with = operator and -&gt; and &lt;- operators (always remember that the arrow points to the variable, also the -&gt; is not often used).</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="summarystats.html#cb64-1"></a>a1 =<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb64-2"><a href="summarystats.html#cb64-2"></a>a2 &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb64-3"><a href="summarystats.html#cb64-3"></a></span>
+<span id="cb64-4"><a href="summarystats.html#cb64-4"></a>a1</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="summarystats.html#cb66-1"></a>a2</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>This list is not exhaustive, but in general you will be working with five type of variables:
+1. strings
+2. numeric
+3. dates
+4. data.frame: rectangular data, think a spreadsheet
+5. factors: categorical variables, distinct buckets like “big”, “small”
+6. lists: list are hierarchical holders of different data types</p>
+</div>
+<div id="packages" class="section level3">
+<h3><span class="header-section-number">2.7.7</span> Packages</h3>
+<p>In R you can compile a series of functions and data into a package. Creating packages is outside the scope of this course, but if you want to get good at R, going through the process of creating packages is one the best routes. There are thousands of packages available that people have put together. For instance, <code>ggplot</code> is a common graphing package. To install a pacakge run <code>install.packages("ggplot")</code>. To load a package, run <code>library(ggplot)</code>. For instance,</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="summarystats.html#cb68-1"></a><span class="kw">library</span>(dplyr)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="summarystats.html#cb72-1"></a><span class="kw">library</span>(bigrquery)</span>
+<span id="cb72-2"><a href="summarystats.html#cb72-2"></a><span class="kw">library</span>(DBI)</span>
+<span id="cb72-3"><a href="summarystats.html#cb72-3"></a><span class="kw">library</span>(plotly)</span></code></pre></div>
+<pre><code>## Loading required package: ggplot2</code></pre>
+<pre><code>## 
+## Attaching package: &#39;plotly&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     last_plot</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter</code></pre>
+<pre><code>## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     layout</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="summarystats.html#cb78-1"></a><span class="kw">library</span>(gapminder)</span></code></pre></div>
+<p>these commands would load some commonly used packages for statisical computing, some bigquery and SQL commands, and another plotting package. Notice that these packages will only load if you have installed them, but you will only need to install them once.</p>
+</div>
+<div id="loading-data" class="section level3">
+<h3><span class="header-section-number">2.7.8</span> Loading data</h3>
+<p>Let’s create a csv to work on. First create an empty code file</p>
+<div class="figure">
+<img src="pics/lab1_ss6.png" alt="" />
+<p class="caption">Create file</p>
+</div>
+<p>Copy and paste, or type the following in the file:</p>
+<pre><code>a,b,c
+1,2,3
+4,5,6
+7,8,9</code></pre>
+<div class="figure">
+<img src="pics/lab1_ss7.png" alt="" />
+<p class="caption">Save file</p>
+</div>
+<p>Save the file as <code>data.csv</code>, a prompt will ask you if <em>really</em> want to do that (change file type), say yes. Next, let’s load that file into memory. Close the csv, and create another empty R file as above. In the new file type the following</p>
+<pre><code>dat = read_csv(&quot;./data.csv&quot;)</code></pre>
+<p>Hit <code>Run</code> (or cmd + enter) and you will get some parsing information print to the screen, and a new element in memory called dat (because that is what you named it). To inspect it, click on the data element in the Environment tab</p>
+<div class="figure">
+<img src="pics/lab1_ss8.png" alt="" />
+<p class="caption">View data</p>
+</div>
+</div>
+<div id="tutorial-1-data-basics" class="section level3">
+<h3><span class="header-section-number">2.7.9</span> Tutorial 1: Data Basics</h3>
+<p>On the command line run the following command:</p>
+<p><code>learnr::run_tutorial("ex-data-basics", "learnr")</code></p>
+<p>and follow the prompts.</p>
+<div id="tidyverse-packages" class="section level4">
+<h4><span class="header-section-number">2.7.9.1</span> Tidyverse Packages</h4>
+<p>(The following is borrowed from the R From Students mentioned above)</p>
+<p>When a user installs the Tidyverse, 19 packages are installed . When the user loads the tidyverse using <code>library(tidyverse)</code> a core subset of 8 packages are loaded into R. To use any of the packages not loaded with the core Tidyverse, a user must explicitly load those packages (e.g. <code>library(readxl)</code>) or call the packages using the package name prefix (e.g. <code>readxl::read_xlsx()</code> to run the <code>read_xlsx()</code> function from the <code>readxl</code> package).</p>
+<p>The packages listed below are in the “Core Tidyverse” and loaded with <code>library(tidyverse)</code>.</p>
+<p><strong><em>Core Tidyverse</em></strong></p>
+<p><code>ggplot2</code>: data visualization<br />
+<code>dplyr</code>: data manipulation<br />
+<code>tidyr</code>: data reshaping<br />
+<code>readr</code>: data import<br />
+<code>purrr</code>: functional programming<br />
+<code>tibble</code>: tidy dataframes<br />
+<code>stringr</code>: string manipulation<br />
+<code>forcats</code>: factor use</p>
+<p><strong><em>Additional Tidyverse</em></strong></p>
+<p>There are 11 additional Tidyverse packages that install, but do not automatically load.</p>
+<p><em>Import</em></p>
+<p><code>readxl</code>: reading Excel files<br />
+<code>haven</code>: reading SPSS, Stata, and SAS data<br />
+<code>jsonlite</code>: manipulating JSON<br />
+<code>xml2</code>: reading xml<br />
+<code>httr</code>: accessing web APIs<br />
+<code>rvest</code>: web scraping<br />
+<code>feather</code>: data sharing with Python and beyond</p>
+<p><em>Wrangle</em></p>
+<p><code>lubridate</code>: date manipulation<br />
+<code>hms</code>: time-of-day manipulation</p>
+<p><em>Modeling</em></p>
+<p><code>modelr</code>: modeling pipelines<br />
+<code>broom</code>: takes model results and makes them tidy</p>
+<p>More info on each can be found at <a href="https://tidyverse.tidyverse.org" class="uri">https://tidyverse.tidyverse.org</a>.</p>
+</div>
+</div>
+<div id="dplyr-verbs" class="section level3">
+<h3><span class="header-section-number">2.7.10</span> dplyr Verbs</h3>
+<p>Almost any time a student works with data, they will need to manipulate that data in some way. Below, we will introduce the main 6 <code>dplyr</code> verbs to help wrangle data to gain additional insight. These verbs, <code>select</code>, <code>filter</code>, <code>mutate</code>, <code>group_by</code>, <code>summarize</code>, <code>arrange</code> are explained in detail below.</p>
+<p>In order to motivate use of the aforementioned verbs, we will look to answer the following question:</p>
+<p><strong>What is the average GDP per country since 1980?</strong></p>
+<div id="verb-1-select" class="section level4">
+<h4><span class="header-section-number">2.7.10.1</span> Verb 1: select</h4>
+<p>To begin, we only need to work with certain columns. The relevant columns to this question are <code>country</code>, <code>year</code>, <code>pop</code>, and <code>gdpPercap</code>. We can make this selection using the <code>select</code> function. The first argument in the <code>select</code> function is the data we wish to select from. The subsequent arguments are the names of the columns from the data we will select. In the code below, we save our selected columns into a new <code>tibble</code> called <code>gapminder_selected</code>. We use a different name for the output data frame so as to not overwrite the original data frame object.</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="summarystats.html#cb81-1"></a>gapminder_selected =<span class="st"> </span><span class="kw">select</span>(gapminder, country, year, pop, gdpPercap)</span>
+<span id="cb81-2"><a href="summarystats.html#cb81-2"></a>gapminder_selected </span></code></pre></div>
+<pre><code>## # A tibble: 1,704 x 4
+##    country      year      pop gdpPercap
+##    &lt;fct&gt;       &lt;int&gt;    &lt;int&gt;     &lt;dbl&gt;
+##  1 Afghanistan  1952  8425333      779.
+##  2 Afghanistan  1957  9240934      821.
+##  3 Afghanistan  1962 10267083      853.
+##  4 Afghanistan  1967 11537966      836.
+##  5 Afghanistan  1972 13079460      740.
+##  6 Afghanistan  1977 14880372      786.
+##  7 Afghanistan  1982 12881816      978.
+##  8 Afghanistan  1987 13867957      852.
+##  9 Afghanistan  1992 16317921      649.
+## 10 Afghanistan  1997 22227415      635.
+## # … with 1,694 more rows</code></pre>
+<p>Once we view the data, we see that we still have 1704 rows but only 4 columns.</p>
+</div>
+<div id="verb-2-filter" class="section level4">
+<h4><span class="header-section-number">2.7.10.2</span> Verb 2: filter</h4>
+<p>To further answer our question, we need to filter our data down to the years of interest. We can achieve this goal using the <code>filter</code> function. Like the <code>select</code> function, the first argument in the <code>filter</code> function is the data and subsequent argument is the logical statement of which you wish to filter. In the code below, we filter our selected data and save our filtered data into a new tibble called <code>gapminder_filtered</code>.</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="summarystats.html#cb83-1"></a>gapminder_filtered =<span class="st"> </span><span class="kw">filter</span>(gapminder_selected, year <span class="op">&gt;=</span><span class="st"> </span><span class="dv">1980</span>)</span>
+<span id="cb83-2"><a href="summarystats.html#cb83-2"></a>gapminder_filtered</span></code></pre></div>
+<pre><code>## # A tibble: 852 x 4
+##    country      year      pop gdpPercap
+##    &lt;fct&gt;       &lt;int&gt;    &lt;int&gt;     &lt;dbl&gt;
+##  1 Afghanistan  1982 12881816      978.
+##  2 Afghanistan  1987 13867957      852.
+##  3 Afghanistan  1992 16317921      649.
+##  4 Afghanistan  1997 22227415      635.
+##  5 Afghanistan  2002 25268405      727.
+##  6 Afghanistan  2007 31889923      975.
+##  7 Albania      1982  2780097     3631.
+##  8 Albania      1987  3075321     3739.
+##  9 Albania      1992  3326498     2497.
+## 10 Albania      1997  3428038     3193.
+## # … with 842 more rows</code></pre>
+<p>Once we view the data, we see that our data now consist of 852 rows. This represents the rows of data since 1980.</p>
+</div>
+</div>
+<div id="tutorial-2-filter" class="section level3">
+<h3><span class="header-section-number">2.7.11</span> Tutorial 2: filter</h3>
+<p>On the command line run the following command:</p>
+<p><code>learnr::run_tutorial("ex-data-filter", "learnr")</code></p>
+<p>and follow the prompts.</p>
+<div id="verb-3-mutate" class="section level4">
+<h4><span class="header-section-number">2.7.11.1</span> Verb 3: mutate</h4>
+<p>The next step in answering our question is creating a column that contains the GDP. The <code>mutate</code> function creates new columns according to a specific function that we provide. To answer our question, we need to determine the GDP in each year. To find the GDP, we need to multiply the <code>gdpPercap</code> by the <code>pop</code>. Similar to the previous two verbs, the first argument in the <code>mutate</code> function is the data. Subsequent arguments are columns you wish to create with corresponding formulas. In the code below, we mutate our filtered data and save our mutated data into a new tibble called <code>gapminder_mutated</code>.</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="summarystats.html#cb85-1"></a>gapminder_mutated =<span class="st"> </span><span class="kw">mutate</span>(gapminder_filtered, <span class="dt">GDP =</span> gdpPercap <span class="op">*</span><span class="st"> </span>pop)</span>
+<span id="cb85-2"><a href="summarystats.html#cb85-2"></a>gapminder_mutated</span></code></pre></div>
+<pre><code>## # A tibble: 852 x 5
+##    country      year      pop gdpPercap          GDP
+##    &lt;fct&gt;       &lt;int&gt;    &lt;int&gt;     &lt;dbl&gt;        &lt;dbl&gt;
+##  1 Afghanistan  1982 12881816      978. 12598563401.
+##  2 Afghanistan  1987 13867957      852. 11820990309.
+##  3 Afghanistan  1992 16317921      649. 10595901589.
+##  4 Afghanistan  1997 22227415      635. 14121995875.
+##  5 Afghanistan  2002 25268405      727. 18363410424.
+##  6 Afghanistan  2007 31889923      975. 31079291949.
+##  7 Albania      1982  2780097     3631. 10094200603.
+##  8 Albania      1987  3075321     3739. 11498418358.
+##  9 Albania      1992  3326498     2497.  8307722183.
+## 10 Albania      1997  3428038     3193. 10945912519.
+## # … with 842 more rows</code></pre>
+<p>Once we view the data, we see the new column, <code>GDP</code>, has been added to the end of our tibble.</p>
+</div>
+</div>
+<div id="tutorial-3-mutate" class="section level3">
+<h3><span class="header-section-number">2.7.12</span> Tutorial 3: mutate</h3>
+<p>On the command line run the following command:</p>
+<p><code>learnr::run_tutorial("ex-data-mutate", "learnr")</code></p>
+<p>and follow the prompts.</p>
+<div id="verb-4-group_by" class="section level4">
+<h4><span class="header-section-number">2.7.12.1</span> Verb 4: group_by</h4>
+<p>The next step will be to group our data by the field of interest. In this instance, since we want to know GDP by country, we need to group the data by country. A way to conceptualize this step is to think of placing each group of data into a specific room. In subsequent steps we will apply a function to each group (or room) of data. Just like the previous verbs, the first argument in the <code>group_by</code> function is the data. The following arguments are the columns you wish to group by. In the code below, we group our mutated data and save our grouped data into a new tibble called <code>gapminder_grouped</code>.</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="summarystats.html#cb87-1"></a>gapminder_grouped =<span class="st"> </span><span class="kw">group_by</span>(gapminder_mutated, country) </span>
+<span id="cb87-2"><a href="summarystats.html#cb87-2"></a>gapminder_grouped</span></code></pre></div>
+<pre><code>## # A tibble: 852 x 5
+## # Groups:   country [142]
+##    country      year      pop gdpPercap          GDP
+##    &lt;fct&gt;       &lt;int&gt;    &lt;int&gt;     &lt;dbl&gt;        &lt;dbl&gt;
+##  1 Afghanistan  1982 12881816      978. 12598563401.
+##  2 Afghanistan  1987 13867957      852. 11820990309.
+##  3 Afghanistan  1992 16317921      649. 10595901589.
+##  4 Afghanistan  1997 22227415      635. 14121995875.
+##  5 Afghanistan  2002 25268405      727. 18363410424.
+##  6 Afghanistan  2007 31889923      975. 31079291949.
+##  7 Albania      1982  2780097     3631. 10094200603.
+##  8 Albania      1987  3075321     3739. 11498418358.
+##  9 Albania      1992  3326498     2497.  8307722183.
+## 10 Albania      1997  3428038     3193. 10945912519.
+## # … with 842 more rows</code></pre>
+<p>Students will notice that there appears to be no change to the data. This is mostly true as we have simply told R that we would like to apply future functions to each group of data instead of to the entire tibble. The only difference in output is a note explaining what the data has been grouped into and the number of groups. In this case, it explains the data is grouped by <code>country</code> and that there are 142 groups.</p>
+</div>
+<div id="verb-5-summarise" class="section level4">
+<h4><span class="header-section-number">2.7.12.2</span> Verb 5: summarise</h4>
+<p>Next, in order to determine the average GDP by country, we need to apply a function to each group we have identified. Specifically, we will need to take the average GDP over each country. Since we have already grouped by country, we next need to apply the summarise function. Like the previous verbs, the first argument in the <code>summarise</code> function is the data. The following arguments are the function to apply to each group. In the code below, we summarise the grouped data and save the summarised data into a new tibble called <code>gapminder_summarised</code>.</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="summarystats.html#cb89-1"></a>gapminder_summarised =<span class="st"> </span><span class="kw">summarise</span>(gapminder_grouped, <span class="dt">AVG_GDP =</span> <span class="kw">mean</span>(GDP))</span>
+<span id="cb89-2"><a href="summarystats.html#cb89-2"></a>gapminder_summarised</span></code></pre></div>
+<pre><code>## # A tibble: 142 x 2
+##    country           AVG_GDP
+##    &lt;fct&gt;               &lt;dbl&gt;
+##  1 Afghanistan  16430025591.
+##  2 Albania      13062766192.
+##  3 Algeria     148613140752.
+##  4 Angola       28940373965.
+##  5 Argentina   353071702131.
+##  6 Australia   477639321504.
+##  7 Austria     225388780040.
+##  8 Bahrain      12397050418.
+##  9 Bangladesh  119954904364.
+## 10 Belgium     271944511091.
+## # … with 132 more rows</code></pre>
+<p>We now have an answer to our question. The tibble above shows the average GDP per country since 1980.</p>
+</div>
+</div>
+<div id="tutorial-4-summarize" class="section level3">
+<h3><span class="header-section-number">2.7.13</span> Tutorial 4: summarize</h3>
+<p>On the command line run the following command:</p>
+<p><code>learnr::run_tutorial("ex-data-summarise", "learnr")</code></p>
+<p>and follow the prompts.</p>
+<div id="verb-6-arrange" class="section level4">
+<h4><span class="header-section-number">2.7.13.1</span> Verb 6: arrange</h4>
+<p>However, we can refine our result to provide more understanding. Currently, our data is sorted alphabetically by country. This does not provide much insight. We can use the <code>arrange</code> function to sort the data by average GDP; either ascending or descending. Like all other verbs, the first argument in the <code>arrange</code> function is the data. The following arguments are the one or more columns which you wish to sort by. In the code below, we arrange our summarised data and save our arranged data into a new tibble called <code>gapminder_arranged</code>.</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="summarystats.html#cb91-1"></a>gapminder_arragned =<span class="st"> </span><span class="kw">arrange</span>(gapminder_summarised, AVG_GDP)</span>
+<span id="cb91-2"><a href="summarystats.html#cb91-2"></a>gapminder_arragned</span></code></pre></div>
+<pre><code>## # A tibble: 142 x 2
+##    country                      AVG_GDP
+##    &lt;fct&gt;                          &lt;dbl&gt;
+##  1 Sao Tome and Principe     213138942.
+##  2 Comoros                   585013190.
+##  3 Guinea-Bissau             788263198.
+##  4 Gambia                    806874307.
+##  5 Djibouti                  894915489.
+##  6 Liberia                  1274437021.
+##  7 Lesotho                  2041066151.
+##  8 Equatorial Guinea        2131596160.
+##  9 Eritrea                  2545841271.
+## 10 Central African Republic 2670573945.
+## # … with 132 more rows</code></pre>
+<p>We see, from the output above, the countries with the smallest average GDP since 1980.</p>
+<p>It may be more interesting, however, to sort the average GDP in descending order so we can learn which countries have the highest average GDP. To do this we simply place a - sign in front of <code>AVG_GDP</code> in the code above.</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="summarystats.html#cb93-1"></a>gapminder_arragned_descending =<span class="st"> </span><span class="kw">arrange</span>(gapminder_summarised, <span class="op">-</span>AVG_GDP)</span>
+<span id="cb93-2"><a href="summarystats.html#cb93-2"></a>gapminder_arragned_descending</span></code></pre></div>
+<pre><code>## # A tibble: 142 x 2
+##    country        AVG_GDP
+##    &lt;fct&gt;            &lt;dbl&gt;
+##  1 United States  9.20e12
+##  2 Japan          3.28e12
+##  3 China          2.96e12
+##  4 Germany        2.20e12
+##  5 United Kingdom 1.48e12
+##  6 France         1.48e12
+##  7 India          1.39e12
+##  8 Italy          1.33e12
+##  9 Brazil         1.27e12
+## 10 Mexico         9.26e11
+## # … with 132 more rows</code></pre>
+</div>
+<div id="simplifying-code-with-the-pipe-operator" class="section level4">
+<h4><span class="header-section-number">2.7.13.2</span> Simplifying Code with the Pipe Operator: <code>%&gt;%</code></h4>
+<p>After helping learners see how each function works we can introduce the pipe operator (<code>%&gt;%</code>). This helpful code chains together commands and passes the results of one function directly into the next function. This results in very logical data manipulation steps that are fairly easy to learn and makes the code easy to understand:</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="summarystats.html#cb95-1"></a>gapminder_arragned_descending_chained =</span>
+<span id="cb95-2"><a href="summarystats.html#cb95-2"></a><span class="st">  </span>gapminder <span class="op">%&gt;%</span></span>
+<span id="cb95-3"><a href="summarystats.html#cb95-3"></a><span class="st">  </span><span class="kw">select</span>(country, year, pop, gdpPercap) <span class="op">%&gt;%</span></span>
+<span id="cb95-4"><a href="summarystats.html#cb95-4"></a><span class="st">  </span><span class="kw">filter</span>(year <span class="op">&gt;=</span><span class="st"> </span><span class="dv">1980</span>) <span class="op">%&gt;%</span></span>
+<span id="cb95-5"><a href="summarystats.html#cb95-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">GDP =</span> gdpPercap <span class="op">*</span><span class="st"> </span>pop) <span class="op">%&gt;%</span></span>
+<span id="cb95-6"><a href="summarystats.html#cb95-6"></a><span class="st">  </span><span class="kw">group_by</span>(country) <span class="op">%&gt;%</span></span>
+<span id="cb95-7"><a href="summarystats.html#cb95-7"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">AVG_GDP =</span> <span class="kw">mean</span>(GDP)) <span class="op">%&gt;%</span></span>
+<span id="cb95-8"><a href="summarystats.html#cb95-8"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="op">-</span>AVG_GDP)</span>
+<span id="cb95-9"><a href="summarystats.html#cb95-9"></a>gapminder_arragned_descending_chained</span></code></pre></div>
+<pre><code>## # A tibble: 142 x 2
+##    country        AVG_GDP
+##    &lt;fct&gt;            &lt;dbl&gt;
+##  1 United States  9.20e12
+##  2 Japan          3.28e12
+##  3 China          2.96e12
+##  4 Germany        2.20e12
+##  5 United Kingdom 1.48e12
+##  6 France         1.48e12
+##  7 India          1.39e12
+##  8 Italy          1.33e12
+##  9 Brazil         1.27e12
+## 10 Mexico         9.26e11
+## # … with 132 more rows</code></pre>
+</div>
+</div>
+<div id="lecture-questions" class="section level3">
+<h3><span class="header-section-number">2.7.14</span> Lecture questions:</h3>
+<ol style="list-style-type: decimal">
+<li>Run the following R code many times and notice that the answer is always an integer.</li>
+</ol>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="summarystats.html#cb97-1"></a><span class="kw">median</span>(<span class="kw">sample</span>(<span class="op">-</span><span class="dv">10</span><span class="op">:</span><span class="dv">10</span>,<span class="dv">5</span>))</span></code></pre></div>
+<pre><code>## [1] -1</code></pre>
+<p>Now run this snippet a few times and notice that sometimes the answer is an integer, but sometimes it’s a half integer. Why is this?</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="summarystats.html#cb99-1"></a><span class="kw">median</span>(<span class="kw">sample</span>(<span class="op">-</span><span class="dv">10</span><span class="op">:</span><span class="dv">10</span>,<span class="dv">6</span>))</span></code></pre></div>
+<pre><code>## [1] -1.5</code></pre>
+<p>```</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Run an experiment to verify that fact that if we were to randomly select a number from our list it would be just as likely that the number be greater than the median as less than the median.</p></li>
+<li><p>Show that a standardized dataset has mean <span class="math inline">\(0\)</span> and standard deviation <span class="math inline">\(1\)</span>. You can either do this formally or by looking at some examples in R.</p></li>
+</ol>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="corr.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-summary_stats.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
