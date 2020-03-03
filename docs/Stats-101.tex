@@ -164,7 +164,7 @@ We will typically denote our list of numbers \(x\) and refer to it as a \textbf{
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]  8 44 26 20 41 50 29 35 47 13
+##  [1] 36 26 30 48 12 26 44 26  4 36
 \end{verbatim}
 
 This will sample \(10\) numbers ``randomly'' from the the integers between \(0\) and \(50\). Random can be a loaded term and we will talk more about what it can mean later, but here it means that each number is equally likely to be selected at each draw. The \texttt{replace=TRUE} bit means that we ``put'' a number back into the pot after we draw it so that we have the possibility of drawing it again. We will talk more about the various ways samples can be taken later on in the course.
@@ -180,7 +180,7 @@ We can visualize the list of numbers using a \textbf{histogram} as shown here.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-2-1.pdf}
+\includegraphics{Stats-101_files/figure-latex/unnamed-chunk-2-1.pdf}
 
 This is essentially a bar graph where the x-axis shows ranges and the y-axis gives the count of numbers in each range that appear in the sample. Or, said another way, the \emph{height} of each bar is equal to the count of numbers in each range. This is called a \textbf{frequency histogram} because it displays the \emph{number} of times each number appears on the list.
 
@@ -196,7 +196,7 @@ So, what do we really mean by the size of the numbers on the list? The right def
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 50
+## [1] 48
 \end{verbatim}
 
 \begin{Shaded}
@@ -206,7 +206,7 @@ So, what do we really mean by the size of the numbers on the list? The right def
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 8
+## [1] 4
 \end{verbatim}
 
 These measure the extremes of the dataset, but how are the numbers distributed between them? Are they piled up on one side of the other? Do they mostly fall in the middle or are they evenly spread out? We can see the distrubution on a histogram, but how do we \emph{quantify} these properties? We will do this with two numbers. One will measure where the ``center'' of the sample falls and the other measures how spread out the sample is. These are sometimes called \emph{measures of central tendency}. Let's first discuss how we can describe the center of the dataset.
@@ -223,7 +223,7 @@ The \textbf{median} of a list of numbers is the value at the midpoint if we were
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]  8 13 20 26 29 35 41 44 47 50
+##  [1]  4 12 26 26 26 30 36 36 44 48
 \end{verbatim}
 
 \begin{Shaded}
@@ -233,7 +233,7 @@ The \textbf{median} of a list of numbers is the value at the midpoint if we were
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 32
+## [1] 28
 \end{verbatim}
 
 We can visualize the median on a frequency histogram.
@@ -246,7 +246,7 @@ We can visualize the median on a frequency histogram.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-5-1.pdf}
+\includegraphics{Stats-101_files/figure-latex/unnamed-chunk-5-1.pdf}
 
 A nice property of the median is that it is not very sensitive to outliers, that is, numbers that are far from the center of the dataset.
 
@@ -257,7 +257,7 @@ A nice property of the median is that it is not very sensitive to outliers, that
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 32
+## [1] 28
 \end{verbatim}
 
 Now watch what happens we add some very large numbers to the list.
@@ -269,7 +269,7 @@ Now watch what happens we add some very large numbers to the list.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 35
+## [1] 30
 \end{verbatim}
 
 \begin{Shaded}
@@ -279,7 +279,7 @@ Now watch what happens we add some very large numbers to the list.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 35
+## [1] 30
 \end{verbatim}
 
 \begin{Shaded}
@@ -289,7 +289,7 @@ Now watch what happens we add some very large numbers to the list.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 35
+## [1] 30
 \end{verbatim}
 
 Notice that the median isn't very sensitive to the value of an added outlier. So, when data is known to have some kind of skew it is common to use medians to describe the center. A typical example of this is income due to its concentration in the hands of relatively few.
@@ -395,7 +395,7 @@ There is another measure of size that is important, but sometimes not given the 
 
 Why do we need another way of measure the size of the list? Consider the following example.
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-10-1.pdf}
+\includegraphics{Stats-101_files/figure-latex/unnamed-chunk-10-1.pdf}
 
 Notice that this histogram is fairly symmetric about \(0\). This means that we should expect the mean to be close to \(0\) (for example, by thinking about the balancing analogy above).
 
@@ -406,7 +406,7 @@ Notice that this histogram is fairly symmetric about \(0\). This means that we s
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.03647382
+## [1] -0.02136167
 \end{verbatim}
 
 Notice what happens when we add balanced outliers.
@@ -417,7 +417,7 @@ Notice what happens when we add balanced outliers.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-12-1.pdf}
+\includegraphics{Stats-101_files/figure-latex/unnamed-chunk-12-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -426,7 +426,7 @@ Notice what happens when we add balanced outliers.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.03647382
+## [1] -0.02136167
 \end{verbatim}
 
 The mean is unchanged! This isn't good if we are interested in measuring the size of the \emph{magnitude} of the numbers. This is where the root mean square comes in. It is sensitive to adding balanced outliers.
@@ -438,7 +438,7 @@ The mean is unchanged! This isn't good if we are interested in measuring the siz
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.014772
+## [1] 1.017948
 \end{verbatim}
 
 \begin{Shaded}
@@ -448,7 +448,7 @@ The mean is unchanged! This isn't good if we are interested in measuring the siz
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.107839
+## [1] 1.110743
 \end{verbatim}
 
 It is reasonable to ask why we use this measure instead of something ``simpler'' like, for instance, taking the average of absolute values. In truth, that would also be a reasonable way to measure the size of the magnitudes of the numbers (average absolute deviation is a fairly common way to measure error). However, the root mean square is related to the notion of the norm of a vector in the \textbf{Euclidean space} \(\mathbb{R}^n\) which, as we will see in chapter \ref{corr}, can be exploited. If this is unfamiliar, then the takeaway is that this formula fits into a larger framework and this is convenient.
@@ -529,11 +529,11 @@ There are instances when working with a quantity that contains a square root is 
 
 As we previously mentioned, frequency histograms are essentialy just bar charts. This means that the scale of the y-axis depends on the numbers appear in our list. This can make it difficult to reason about the data or compare datasets to each other. For example, given the following histogram how could we quickly estimate the percentage of numbers that fall between \(1\) and \(2\)?
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-17-1.pdf}
+\includegraphics{Stats-101_files/figure-latex/unnamed-chunk-17-1.pdf}
 
 We would need to sum up the heights of each bar between \(1\) and \(2\) and then divide by the size of the list. This isn't particularly difficult, but we can make this more easily read off the histogram. A \textbf{density histogram} is one where the the \emph{area} of each bar corresponds to the \emph{percentage} of numbers that fall within each range. If we restrict ourselves to histograms with bins of all the same width, then we can obtain the density histogram by dividing the frequency of each number by the sample size.
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-18-1.pdf}
+\includegraphics{Stats-101_files/figure-latex/unnamed-chunk-18-1.pdf}
 
 To estimate the percentage of the numbers that fall between \(1\) and \(2\) we can estimate the total area of the bars between \(1\) and \(2\). Each bar has width \(0.5\), so the area of the bar between \(1\) and \(1.5\) is about \(0.5 * 0.2 = 0.1\) and the bar between \(1.5\) and \(2\) is has area about \(0.5 * 0.1 = 0.05\). So, the percentage of the numbers that fall between \(1\) and \(2\) is about \(15\%\).
 
@@ -546,7 +546,7 @@ We can think of converting from a frequency histogram to a density histogram as 
 
 Consider the following density histogram.
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-19-1.pdf}
+\includegraphics{Stats-101_files/figure-latex/unnamed-chunk-19-1.pdf}
 
 To standardize this histogram we will make two modifications. The first will be to compute the mean of the data and then subtract that from each number in the sample. Let's do this using R and then look at the resulting histogram.
 
@@ -557,7 +557,7 @@ To standardize this histogram we will make two modifications. The first will be 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-20-1.pdf}
+\includegraphics{Stats-101_files/figure-latex/unnamed-chunk-20-1.pdf}
 
 Notice that the histogram is now centered at \(0\) instead of whatever the mean of the original dataset was. It can be nice to center histograms at \(0\) if we are comparing the shape of data across datasets that may have different means (we will look at an example of this in the next section). It is interesting to note that the mean of the dataset after subtracting the original mean is \(0\).
 
@@ -568,7 +568,7 @@ Notice that the histogram is now centered at \(0\) instead of whatever the mean 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -2.488396e-15
+## [1] 9.738616e-17
 \end{verbatim}
 
 Note that this number is in \href{https://en.wikipedia.org/wiki/Scientific_notation}{scientific notation} and is very close to zero. It is not exactly zero due to rounding error in the numerical computation.
@@ -582,7 +582,7 @@ The second modification we will make is to divide each number in the sample by t
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-22-1.pdf}
+\includegraphics{Stats-101_files/figure-latex/unnamed-chunk-22-1.pdf}
 
 Notice that this standardized histogram has the same shape as the previous one, but it has been rescaled so that the majority of the values fall between \(-2\) and \(2\).
 
@@ -595,13 +595,13 @@ In the next section we will look at an example of how standardizing data can be 
 
 Consider the following situation motivated by a real situation within Mailchimp data. We have many users and each of their email campaigns have an associated open rate. Below we see density histograms for three different users showing the distributions of their open rates across all campaigns they have sent.
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-24-1.pdf}
+\includegraphics{Stats-101_files/figure-latex/unnamed-chunk-24-1.pdf}
 
 We can see from these histograms that the mean open rates for these users are about \(20\), \(30\), and \(60\) respectively. We can also see that the variances around the means are different for each user. This makes sense since each user's audience will engage at different rates across campaigns.
 
 Now suppose we want to analyze the impact of some Mailchimp feature on open rate. We could split each histogram by whether or not the campaigns used the feature.
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-26-1.pdf}
+\includegraphics{Stats-101_files/figure-latex/unnamed-chunk-26-1.pdf}
 
 Now we have two histograms for each of these users. One showing open rate using the feature and the other showing open rate \emph{not} using the feature. It appears that there is a difference between open rates, but the actual amount of change seems to vary between the users. So, how can we quantify how much the feature impacts open rate?
 
@@ -609,7 +609,7 @@ An issue here is that it is difficult to separate the impact of the feature from
 
 We don't want to standardize using \texttt{sd(x\_1\_a)} and \texttt{mean(x\_1\_a)} because we would
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-27-1.pdf}
+\includegraphics{Stats-101_files/figure-latex/unnamed-chunk-27-1.pdf}
 
 After standardizing we can see that the histograms corresponding to using the feature have collapsed to almost the same histogram and similarly for the histograms corresponding to not using the feature. The peaks of the histograms corresponding to using the feature are at about \(1\) standard unit and the peaks of the histograms corresponding to not using the feature are at about \(-1\) standard unit. We can interpret this as telling us that that if a user uses the feature they should expect for the campaign to perform at about \(1\) standard deviation above their mean open rate. Similarly, if a user does not use the feature then they should expect the campaign to perform at about \(1\) standard deviation below their mean open rate.
 
@@ -625,7 +625,7 @@ There is one more important thing to note about this example. In order to get an
 
 If we had instead standardized using the mean and standard deviation of \texttt{x\_1\_a} then we would have ended up with data that was mean \(0\) and variance \(1\) as we noted previously. So, all of the histograms would have piled on top of each other and we would have hidden the actual impact of the feature from ourselves as shown below.
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-29-1.pdf}
+\includegraphics{Stats-101_files/figure-latex/unnamed-chunk-29-1.pdf}
 
 \hypertarget{lab-questions}{%
 \section{Lab Questions}\label{lab-questions}}
@@ -1291,7 +1291,7 @@ After helping learners see how each function works we can introduce the pipe ope
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 6
+## [1] -5
 \end{verbatim}
 
 Now run this snippet a few times and notice that sometimes the answer is an integer, but sometimes it's a half integer. Why is this?
@@ -1303,7 +1303,7 @@ Now run this snippet a few times and notice that sometimes the answer is an inte
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.5
+## [1] 2.5
 \end{verbatim}
 
 ```
